@@ -171,12 +171,16 @@ class WindowManager:
 			
 class DesktopEnvironment:
 	def __init__(self):
+		found = False
 		de = ''
 		for key in deDict.keys():
 			if key in processes:
-				de = deDict[key]
+				found = True
 				break
-					
+		if found:
+			de = deDict[key]
+		else:
+			de = "None"
 		self.key = 'Desktop Environment'
 		self.value = de
 			
